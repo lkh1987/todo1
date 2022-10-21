@@ -1,13 +1,15 @@
-package domain;
+package com.lkh.todo.domain;
 
 import com.lkh.todo.entity.ToDo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@EqualsAndHashCode
 public class ToDoDTO {
     private String id;
     private String title;
@@ -20,8 +22,12 @@ public class ToDoDTO {
         this.done = toDo.isDone();
     }
 
-    //DTO 인스턴스를 Entity 인스턴스로 변환해주는 메소드
+    //DTO 인스턴스를 Entity 인스턴스로 변화해주는 메섣
     public static ToDo toEntity(final ToDoDTO dto){
-        return ToDo.builder().id(dto.getId()).title(dto.getTitle()).done(dto.isDone()).build();
+        return ToDo.builder()
+                .id(dto.getId())
+                .title(dto.getTitle())
+                .done(dto.isDone())
+                .build();
     }
 }
